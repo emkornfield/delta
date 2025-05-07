@@ -134,6 +134,10 @@ public class StructField {
     return new StructField(name, dataType, nullable, metadata);
   }
 
+  public StructField withNewDataType(DataType newType) {
+    return new StructField(name, newType, nullable, metadata);
+  }
+
   private List<Tuple2<String, String>> getNestedCollatedFields(DataType parent, String path) {
     List<Tuple2<String, String>> nestedCollatedFields = new ArrayList<>();
     if (parent instanceof StringType) {
